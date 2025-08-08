@@ -2,6 +2,8 @@
 
 A simple and graceful tool to test OpenAI API keys with comprehensive error handling and beautiful output.
 
+![OpenAI API Key Tester Overview](project-overview.svg)
+
 ## Features
 
 - ✅ **API Key Format Validation** - Checks if your API key has the correct format
