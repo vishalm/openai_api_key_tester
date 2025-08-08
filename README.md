@@ -181,6 +181,89 @@ If you're using Azure OpenAI, make sure to:
 - Use the appropriate model name (e.g., `gpt-35-turbo` instead of `gpt-3.5-turbo`)
 - Ensure your API key has the necessary permissions
 
+## Git Instructions
+
+### Getting Started
+
+1. **Clone the repository:**
+   ```bash
+   git clone https://github.com/vishalm/openai_api_key_tester.git
+   cd openai_api_key_tester
+   ```
+
+2. **Set up your environment:**
+   ```bash
+   pip install -r requirements.txt
+   cp env.example .env
+   # Edit .env with your API key
+   ```
+
+### Contributing
+
+1. **Create a new branch:**
+   ```bash
+   git checkout -b feature/your-feature-name
+   # or
+   git checkout -b fix/your-fix-name
+   ```
+
+2. **Make your changes and test:**
+   ```bash
+   python openai_key_tester.py
+   ```
+
+3. **Commit your changes:**
+   ```bash
+   git add .
+   git commit -m "feat: add new feature description"
+   git commit -m "fix: fix issue description"
+   git commit -m "docs: update documentation"
+   ```
+
+4. **Push to your fork:**
+   ```bash
+   git push origin feature/your-feature-name
+   ```
+
+5. **Create a Pull Request** on GitHub
+
+### Commit Message Convention
+
+Use conventional commit messages:
+- `feat:` for new features
+- `fix:` for bug fixes
+- `docs:` for documentation changes
+- `style:` for formatting changes
+- `refactor:` for code refactoring
+- `test:` for adding tests
+- `chore:` for maintenance tasks
+
+### Branch Naming
+
+- `feature/` - for new features
+- `fix/` - for bug fixes
+- `docs/` - for documentation updates
+- `test/` - for test-related changes
+
+### Development Workflow
+
+```bash
+# Start development
+git checkout main
+git pull origin main
+git checkout -b feature/new-feature
+
+# Make changes and test
+python openai_key_tester.py
+
+# Commit and push
+git add .
+git commit -m "feat: add new testing capability"
+git push origin feature/new-feature
+
+# Create PR on GitHub
+```
+
 ## Requirements
 
 - Python 3.7+
