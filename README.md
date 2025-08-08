@@ -2,7 +2,7 @@
 
 A simple and graceful tool to test OpenAI API keys with comprehensive error handling and beautiful output.
 
-![OpenAI API Key Tester Overview](project-overview.svg)
+![OpenAI API Key Tester Overview](amazing_api_tester.svg)
 
 ## Features
 
