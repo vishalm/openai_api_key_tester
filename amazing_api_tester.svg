@@ -1,0 +1,482 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="1400" height="900" viewBox="0 0 1400 900" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <!-- Advanced Gradients -->
+    <radialGradient id="heroGradient" cx="50%" cy="30%">
+      <stop offset="0%" style="stop-color:#667eea;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#764ba2;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#1a1a2e;stop-opacity:1" />
+    </radialGradient>
+    
+    <linearGradient id="neonGlow" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#00f5ff;stop-opacity:0.8" />
+      <stop offset="50%" style="stop-color:#ff006e;stop-opacity:0.8" />
+      <stop offset="100%" style="stop-color:#8338ec;stop-opacity:0.8" />
+    </linearGradient>
+    
+    <linearGradient id="glassGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#ffffff;stop-opacity:0.25" />
+      <stop offset="100%" style="stop-color:#ffffff;stop-opacity:0.05" />
+    </linearGradient>
+    
+    <linearGradient id="successPulse" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#00ff88;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#00d4aa;stop-opacity:1" />
+    </linearGradient>
+    
+    <linearGradient id="errorPulse" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#ff073a;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#ff4757;stop-opacity:1" />
+    </linearGradient>
+    
+    <linearGradient id="warningPulse" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#ffa726;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#ff9800;stop-opacity:1" />
+    </linearGradient>
+    
+    <!-- Advanced Filters -->
+    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+      <feMorphology operator="dilate" radius="2"/>
+      <feGaussianBlur stdDeviation="5" result="coloredBlur"/>
+      <feMerge> 
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    
+    <filter id="glassBlur" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="10"/>
+      <feColorMatrix type="saturate" values="1.2"/>
+    </filter>
+    
+    <filter id="neonShadow" x="-100%" y="-100%" width="300%" height="300%">
+      <feDropShadow dx="0" dy="0" stdDeviation="8" flood-color="#00f5ff" flood-opacity="0.6"/>
+      <feDropShadow dx="0" dy="0" stdDeviation="15" flood-color="#ff006e" flood-opacity="0.4"/>
+    </filter>
+    
+    <filter id="softShadow" x="-50%" y="-50%" width="200%" height="200%">
+      <feDropShadow dx="0" dy="8" stdDeviation="25" flood-color="#000000" flood-opacity="0.15"/>
+    </filter>
+    
+    <!-- Arrow Markers -->
+    <marker id="glowArrow" markerWidth="12" markerHeight="8" refX="11" refY="4" orient="auto">
+      <polygon points="0 0, 12 4, 0 8" fill="url(#neonGlow)" filter="url(#glow)"/>
+    </marker>
+    
+    <!-- Patterns -->
+    <pattern id="circuitPattern" x="0" y="0" width="100" height="100" patternUnits="userSpaceOnUse">
+      <circle cx="50" cy="50" r="2" fill="#00f5ff" opacity="0.3">
+        <animate attributeName="opacity" values="0.1;0.8;0.1" dur="3s" repeatCount="indefinite"/>
+      </circle>
+      <line x1="50" y1="50" x2="100" y2="50" stroke="#00f5ff" stroke-width="1" opacity="0.2"/>
+      <line x1="50" y1="50" x2="50" y2="100" stroke="#00f5ff" stroke-width="1" opacity="0.2"/>
+    </pattern>
+  </defs>
+  
+  <!-- Animated Background -->
+  <rect width="1400" height="900" fill="url(#heroGradient)"/>
+  <rect width="1400" height="900" fill="url(#circuitPattern)" opacity="0.1"/>
+  
+  <!-- Floating Elements Animation -->
+  <g opacity="0.6">
+    <circle cx="100" cy="150" r="3" fill="#00f5ff">
+      <animateTransform attributeName="transform" type="translate" 
+                        values="0,0; 20,30; -10,50; 0,0" 
+                        dur="8s" repeatCount="indefinite"/>
+      <animate attributeName="opacity" values="0.3;1;0.3" dur="4s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="1300" cy="300" r="4" fill="#ff006e">
+      <animateTransform attributeName="transform" type="translate" 
+                        values="0,0; -30,20; 15,-40; 0,0" 
+                        dur="6s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="200" cy="800" r="2" fill="#8338ec">
+      <animateTransform attributeName="transform" type="translate" 
+                        values="0,0; 40,-20; -20,30; 0,0" 
+                        dur="10s" repeatCount="indefinite"/>
+    </circle>
+  </g>
+  
+  <!-- Hero Header -->
+  <g transform="translate(0, 30)">
+    <!-- Glassmorphism Header Card -->
+    <rect x="100" y="0" width="1200" height="140" rx="25" 
+          fill="url(#glassGradient)" 
+          stroke="url(#neonGlow)" 
+          stroke-width="2" 
+          filter="url(#softShadow)"/>
+    
+    <!-- Animated Title -->
+    <text x="700" y="60" text-anchor="middle" fill="white" 
+          font-family="Arial, sans-serif" 
+          font-size="48" font-weight="700" filter="url(#glow)">
+      🚀 OpenAI API Key Tester
+      <animate attributeName="opacity" values="0.8;1;0.8" dur="3s" repeatCount="indefinite"/>
+    </text>
+    
+    <text x="700" y="100" text-anchor="middle" fill="#e0e7ff" 
+          font-family="Arial, sans-serif" 
+          font-size="20" font-weight="400" opacity="0.9">
+      Next-Generation API Testing with Style and Intelligence
+    </text>
+    
+    <!-- Animated Underline -->
+    <line x1="400" y1="115" x2="1000" y2="115" stroke="url(#neonGlow)" stroke-width="3" opacity="0.7">
+      <animate attributeName="stroke-dasharray" values="0,600; 600,0; 0,600" dur="4s" repeatCount="indefinite"/>
+    </line>
+  </g>
+  
+  <!-- Main Content Grid -->
+  <g transform="translate(80, 220)">
+    
+    <!-- Left Column - Core Features -->
+    <g transform="translate(0, 0)">
+      <!-- Section Header -->
+      <rect x="-10" y="-15" width="300" height="50" rx="15" fill="url(#glassGradient)" opacity="0.8"/>
+      <text x="140" y="15" text-anchor="middle" font-family="Arial, sans-serif" 
+            font-size="26" font-weight="700" fill="white" filter="url(#glow)">
+        ✨ Core Features
+      </text>
+      
+      <!-- Feature Cards with Animations -->
+      <g transform="translate(0, 60)">
+        <!-- API Key Validation -->
+        <g>
+          <rect x="0" y="0" width="300" height="90" rx="20" 
+                fill="url(#glassGradient)" 
+                stroke="#00f5ff" stroke-width="2" 
+                filter="url(#softShadow)" opacity="0.9">
+            <animate attributeName="stroke-opacity" values="0.3;1;0.3" dur="3s" repeatCount="indefinite"/>
+          </rect>
+          <circle cx="35" cy="30" r="12" fill="url(#successPulse)">
+            <animate attributeName="r" values="10;15;10" dur="2s" repeatCount="indefinite"/>
+          </circle>
+          <text x="35" y="36" text-anchor="middle" font-size="14">🔑</text>
+          <text x="65" y="25" font-family="Arial, sans-serif" 
+                font-size="18" font-weight="600" fill="white">API Key Validation</text>
+          <text x="65" y="45" font-family="Arial, sans-serif" 
+                font-size="13" fill="#cbd5e1">Advanced format checking and validation</text>
+          <text x="65" y="65" font-family="Arial, sans-serif" 
+                font-size="13" fill="#cbd5e1">Smart prefix verification and security</text>
+        </g>
+        
+        <!-- Connectivity Test -->
+        <g transform="translate(0, 110)">
+          <rect x="0" y="0" width="300" height="90" rx="20" 
+                fill="url(#glassGradient)" 
+                stroke="#ff006e" stroke-width="2" 
+                filter="url(#softShadow)" opacity="0.9">
+            <animate attributeName="stroke-opacity" values="0.3;1;0.3" dur="3.5s" repeatCount="indefinite"/>
+          </rect>
+          <circle cx="35" cy="30" r="12" fill="url(#warningPulse)">
+            <animate attributeName="r" values="10;15;10" dur="2.5s" repeatCount="indefinite"/>
+          </circle>
+          <text x="35" y="36" text-anchor="middle" font-size="14">🌐</text>
+          <text x="65" y="25" font-family="Arial, sans-serif" 
+                font-size="18" font-weight="600" fill="white">Connectivity Test</text>
+          <text x="65" y="45" font-family="Arial, sans-serif" 
+                font-size="13" fill="#cbd5e1">Real-time endpoint reachability</text>
+          <text x="65" y="65" font-family="Arial, sans-serif" 
+                font-size="13" fill="#cbd5e1">Intelligent timeout handling</text>
+        </g>
+        
+        <!-- Model Availability -->
+        <g transform="translate(0, 220)">
+          <rect x="0" y="0" width="300" height="90" rx="20" 
+                fill="url(#glassGradient)" 
+                stroke="#8338ec" stroke-width="2" 
+                filter="url(#softShadow)" opacity="0.9">
+            <animate attributeName="stroke-opacity" values="0.3;1;0.3" dur="4s" repeatCount="indefinite"/>
+          </rect>
+          <circle cx="35" cy="30" r="12" fill="url(#successPulse)">
+            <animate attributeName="r" values="10;15;10" dur="3s" repeatCount="indefinite"/>
+          </circle>
+          <text x="35" y="36" text-anchor="middle" font-size="14">🤖</text>
+          <text x="65" y="25" font-family="Arial, sans-serif" 
+                font-size="18" font-weight="600" fill="white">Model Availability</text>
+          <text x="65" y="45" font-family="Arial, sans-serif" 
+                font-size="13" fill="#cbd5e1">Dynamic model accessibility check</text>
+          <text x="65" y="65" font-family="Arial, sans-serif" 
+                font-size="13" fill="#cbd5e1">Automatic fallback support</text>
+        </g>
+        
+        <!-- Completion Test -->
+        <g transform="translate(0, 330)">
+          <rect x="0" y="0" width="300" height="90" rx="20" 
+                fill="url(#glassGradient)" 
+                stroke="#00ff88" stroke-width="2" 
+                filter="url(#softShadow)" opacity="0.9">
+            <animate attributeName="stroke-opacity" values="0.3;1;0.3" dur="2.5s" repeatCount="indefinite"/>
+          </rect>
+          <circle cx="35" cy="30" r="12" fill="url(#errorPulse)">
+            <animate attributeName="r" values="10;15;10" dur="2.2s" repeatCount="indefinite"/>
+          </circle>
+          <text x="35" y="36" text-anchor="middle" font-size="14">💬</text>
+          <text x="65" y="25" font-family="Arial, sans-serif" 
+                font-size="18" font-weight="600" fill="white">Completion Test</text>
+          <text x="65" y="45" font-family="Arial, sans-serif" 
+                font-size="13" fill="#cbd5e1">Live API call testing and validation</text>
+          <text x="65" y="65" font-family="Arial, sans-serif" 
+                font-size="13" fill="#cbd5e1">Comprehensive response analysis</text>
+        </g>
+      </g>
+    </g>
+    
+    <!-- Center Column - Advanced Testing Flow -->
+    <g transform="translate(380, 0)">
+      <rect x="-10" y="-15" width="300" height="50" rx="15" fill="url(#glassGradient)" opacity="0.8"/>
+      <text x="140" y="15" text-anchor="middle" font-family="Arial, sans-serif" 
+            font-size="26" font-weight="700" fill="white" filter="url(#glow)">
+        🔄 Testing Flow
+      </text>
+      
+      <!-- Enhanced Flow Diagram -->
+      <g transform="translate(0, 80)">
+        <!-- Start Node -->
+        <circle cx="140" cy="30" r="35" fill="url(#successPulse)" filter="url(#neonShadow)">
+          <animate attributeName="r" values="30;40;30" dur="3s" repeatCount="indefinite"/>
+        </circle>
+        <text x="140" y="36" text-anchor="middle" font-family="Arial, sans-serif" 
+              font-size="14" font-weight="700" fill="white">START</text>
+        
+        <!-- Animated Connection Lines -->
+        <g stroke="url(#neonGlow)" stroke-width="3" fill="none" opacity="0.8">
+          <path d="M 140 65 Q 140 85 140 95" marker-end="url(#glowArrow)">
+            <animate attributeName="stroke-dasharray" values="0,100; 100,0; 0,100" dur="3s" repeatCount="indefinite"/>
+          </path>
+        </g>
+        
+        <!-- Flow Steps -->
+        <g transform="translate(0, 95)">
+          <!-- Step 1 -->
+          <rect x="60" y="0" width="160" height="50" rx="15" 
+                fill="url(#glassGradient)" 
+                stroke="#00f5ff" stroke-width="2" 
+                filter="url(#softShadow)">
+            <animate attributeName="stroke-opacity" values="0.5;1;0.5" dur="2s" begin="0s" repeatCount="indefinite"/>
+          </rect>
+          <text x="140" y="20" text-anchor="middle" font-family="Arial, sans-serif" 
+                font-size="14" font-weight="600" fill="white">1. Environment Setup</text>
+          <text x="140" y="35" text-anchor="middle" font-family="Arial, sans-serif" 
+                font-size="11" fill="#cbd5e1">Load and validate config</text>
+          
+          <path d="M 140 50 Q 140 70 140 80" stroke="url(#neonGlow)" stroke-width="3" fill="none" opacity="0.8" marker-end="url(#glowArrow)">
+            <animate attributeName="stroke-dasharray" values="0,50; 50,0; 0,50" dur="2s" begin="0.5s" repeatCount="indefinite"/>
+          </path>
+          
+          <!-- Step 2 -->
+          <g transform="translate(0, 80)">
+            <rect x="60" y="0" width="160" height="50" rx="15" 
+                  fill="url(#glassGradient)" 
+                  stroke="#ff006e" stroke-width="2" 
+                  filter="url(#softShadow)">
+              <animate attributeName="stroke-opacity" values="0.5;1;0.5" dur="2s" begin="0.5s" repeatCount="indefinite"/>
+            </rect>
+            <text x="140" y="20" text-anchor="middle" font-family="Arial, sans-serif" 
+                  font-size="14" font-weight="600" fill="white">2. Format Validation</text>
+            <text x="140" y="35" text-anchor="middle" font-family="Arial, sans-serif" 
+                  font-size="11" fill="#cbd5e1">Smart key analysis</text>
+            
+            <path d="M 140 50 Q 140 70 140 80" stroke="url(#neonGlow)" stroke-width="3" fill="none" opacity="0.8" marker-end="url(#glowArrow)">
+              <animate attributeName="stroke-dasharray" values="0,50; 50,0; 0,50" dur="2s" begin="1s" repeatCount="indefinite"/>
+            </path>
+          </g>
+          
+          <!-- Step 3 -->
+          <g transform="translate(0, 160)">
+            <rect x="60" y="0" width="160" height="50" rx="15" 
+                  fill="url(#glassGradient)" 
+                  stroke="#8338ec" stroke-width="2" 
+                  filter="url(#softShadow)">
+              <animate attributeName="stroke-opacity" values="0.5;1;0.5" dur="2s" begin="1s" repeatCount="indefinite"/>
+            </rect>
+            <text x="140" y="20" text-anchor="middle" font-family="Arial, sans-serif" 
+                  font-size="14" font-weight="600" fill="white">3. Connection Test</text>
+            <text x="140" y="35" text-anchor="middle" font-family="Arial, sans-serif" 
+                  font-size="11" fill="#cbd5e1">Network diagnostics</text>
+            
+            <path d="M 140 50 Q 140 70 140 80" stroke="url(#neonGlow)" stroke-width="3" fill="none" opacity="0.8" marker-end="url(#glowArrow)">
+              <animate attributeName="stroke-dasharray" values="0,50; 50,0; 0,50" dur="2s" begin="1.5s" repeatCount="indefinite"/>
+            </path>
+          </g>
+          
+          <!-- Step 4 -->
+          <g transform="translate(0, 240)">
+            <rect x="60" y="0" width="160" height="50" rx="15" 
+                  fill="url(#glassGradient)" 
+                  stroke="#00ff88" stroke-width="2" 
+                  filter="url(#softShadow)">
+              <animate attributeName="stroke-opacity" values="0.5;1;0.5" dur="2s" begin="1.5s" repeatCount="indefinite"/>
+            </rect>
+            <text x="140" y="20" text-anchor="middle" font-family="Arial, sans-serif" 
+                  font-size="14" font-weight="600" fill="white">4. Live API Test</text>
+            <text x="140" y="35" text-anchor="middle" font-family="Arial, sans-serif" 
+                  font-size="11" fill="#cbd5e1">Real completion call</text>
+            
+            <path d="M 140 50 Q 140 70 140 80" stroke="url(#neonGlow)" stroke-width="3" fill="none" opacity="0.8" marker-end="url(#glowArrow)">
+              <animate attributeName="stroke-dasharray" values="0,50; 50,0; 0,50" dur="2s" begin="2s" repeatCount="indefinite"/>
+            </path>
+          </g>
+        </g>
+        
+        <!-- Success Node -->
+        <circle cx="140" cy="520" r="35" fill="url(#successPulse)" filter="url(#neonShadow)">
+          <animate attributeName="r" values="30;40;30" dur="2s" begin="2.5s" repeatCount="indefinite"/>
+        </circle>
+        <text x="140" y="520" text-anchor="middle" font-size="20">🎉</text>
+        <text x="140" y="540" text-anchor="middle" font-family="Arial, sans-serif" 
+              font-size="12" font-weight="700" fill="white">SUCCESS!</text>
+      </g>
+    </g>
+    
+    <!-- Right Column - Error Handling -->
+    <g transform="translate(760, 0)">
+      <rect x="-10" y="-15" width="300" height="50" rx="15" fill="url(#glassGradient)" opacity="0.8"/>
+      <text x="140" y="15" text-anchor="middle" font-family="Arial, sans-serif" 
+            font-size="26" font-weight="700" fill="white" filter="url(#glow)">
+        🛡️ Error Handling
+      </text>
+      
+      <!-- Error Types with Advanced Styling -->
+      <g transform="translate(0, 60)">
+        <!-- Authentication Error -->
+        <g>
+          <rect x="0" y="0" width="300" height="75" rx="20" 
+                fill="url(#glassGradient)" 
+                stroke="url(#errorPulse)" stroke-width="3" 
+                filter="url(#softShadow)" opacity="0.95">
+            <animate attributeName="stroke-width" values="2;4;2" dur="3s" repeatCount="indefinite"/>
+          </rect>
+          <circle cx="30" cy="25" r="15" fill="url(#errorPulse)" filter="url(#glow)">
+            <animate attributeName="opacity" values="0.7;1;0.7" dur="2s" repeatCount="indefinite"/>
+          </circle>
+          <text x="30" y="31" text-anchor="middle" font-size="16">🔐</text>
+          <text x="60" y="20" font-family="Arial, sans-serif" 
+                font-size="16" font-weight="700" fill="white">Authentication Error</text>
+          <text x="60" y="40" font-family="Arial, sans-serif" 
+                font-size="12" fill="#fca5a5">Invalid API key or insufficient permissions</text>
+          <text x="60" y="55" font-family="Arial, sans-serif" 
+                font-size="12" fill="#fca5a5">Smart troubleshooting suggestions</text>
+        </g>
+        
+        <!-- Network Error -->
+        <g transform="translate(0, 95)">
+          <rect x="0" y="0" width="300" height="75" rx="20" 
+                fill="url(#glassGradient)" 
+                stroke="url(#warningPulse)" stroke-width="3" 
+                filter="url(#softShadow)" opacity="0.95">
+            <animate attributeName="stroke-width" values="2;4;2" dur="3.5s" repeatCount="indefinite"/>
+          </rect>
+          <circle cx="30" cy="25" r="15" fill="url(#warningPulse)" filter="url(#glow)">
+            <animate attributeName="opacity" values="0.7;1;0.7" dur="2.5s" repeatCount="indefinite"/>
+          </circle>
+          <text x="30" y="31" text-anchor="middle" font-size="16">🌐</text>
+          <text x="60" y="20" font-family="Arial, sans-serif" 
+                font-size="16" font-weight="700" fill="white">Network Error</text>
+          <text x="60" y="40" font-family="Arial, sans-serif" 
+                font-size="12" fill="#fed7aa">Connection timeout or network failure</text>
+          <text x="60" y="55" font-family="Arial, sans-serif" 
+                font-size="12" fill="#fed7aa">Automatic retry with backoff</text>
+        </g>
+        
+        <!-- Rate Limit Error -->
+        <g transform="translate(0, 190)">
+          <rect x="0" y="0" width="300" height="75" rx="20" 
+                fill="url(#glassGradient)" 
+                stroke="url(#warningPulse)" stroke-width="3" 
+                filter="url(#softShadow)" opacity="0.95">
+            <animate attributeName="stroke-width" values="2;4;2" dur="4s" repeatCount="indefinite"/>
+          </rect>
+          <circle cx="30" cy="25" r="15" fill="url(#warningPulse)" filter="url(#glow)">
+            <animate attributeName="opacity" values="0.7;1;0.7" dur="3s" repeatCount="indefinite"/>
+          </circle>
+          <text x="30" y="31" text-anchor="middle" font-size="16">⏱️</text>
+          <text x="60" y="20" font-family="Arial, sans-serif" 
+                font-size="16" font-weight="700" fill="white">Rate Limit Error</text>
+          <text x="60" y="40" font-family="Arial, sans-serif" 
+                font-size="12" fill="#fed7aa">API rate limit exceeded</text>
+          <text x="60" y="55" font-family="Arial, sans-serif" 
+                font-size="12" fill="#fed7aa">Intelligent wait time calculation</text>
+        </g>
+        
+        <!-- Model Error -->
+        <g transform="translate(0, 285)">
+          <rect x="0" y="0" width="300" height="75" rx="20" 
+                fill="url(#glassGradient)" 
+                stroke="#8338ec" stroke-width="3" 
+                filter="url(#softShadow)" opacity="0.95">
+            <animate attributeName="stroke-width" values="2;4;2" dur="2.8s" repeatCount="indefinite"/>
+          </rect>
+          <circle cx="30" cy="25" r="15" fill="#8338ec" filter="url(#glow)">
+            <animate attributeName="opacity" values="0.7;1;0.7" dur="2.3s" repeatCount="indefinite"/>
+          </circle>
+          <text x="30" y="31" text-anchor="middle" font-size="16">🤖</text>
+          <text x="60" y="20" font-family="Arial, sans-serif" 
+                font-size="16" font-weight="700" fill="white">Model Error</text>
+          <text x="60" y="40" font-family="Arial, sans-serif" 
+                font-size="12" fill="#c4b5fd">Model not found or unavailable</text>
+          <text x="60" y="55" font-family="Arial, sans-serif" 
+                font-size="12" fill="#c4b5fd">Auto-fallback to available models</text>
+        </g>
+      </g>
+    </g>
+  </g>
+  
+  <!-- Bottom Section - Enhanced Terminal Output -->
+  <g transform="translate(80, 660)">
+    <!-- Terminal Header -->
+    <rect x="0" y="0" width="1240" height="50" rx="15" fill="url(#glassGradient)" opacity="0.9"/>
+    <text x="620" y="32" text-anchor="middle" font-family="Arial, sans-serif" 
+          font-size="24" font-weight="700" fill="white" filter="url(#glow)">
+      🖥️ Live Terminal Output
+    </text>
+    
+    <!-- Enhanced Terminal Window -->
+    <rect x="0" y="50" width="1240" height="140" rx="15" fill="#0d1117" stroke="url(#neonGlow)" stroke-width="2" filter="url(#softShadow)">
+      <animate attributeName="stroke-opacity" values="0.3;0.8;0.3" dur="4s" repeatCount="indefinite"/>
+    </rect>
+    
+    <!-- Terminal Dots -->
+    <circle cx="30" cy="75" r="6" fill="#ff5f56"/>
+    <circle cx="50" cy="75" r="6" fill="#ffbd2e"/>
+    <circle cx="70" cy="75" r="6" fill="#27ca3f"/>
+    
+    <!-- Animated Terminal Text -->
+    <g font-family="monospace" font-size="13">
+      <text x="30" y="105" fill="#00f5ff">
+        ╭─ OpenAI API Key Tester v2.0 ─────────────────────────────────────────────╮
+        <animate attributeName="opacity" values="0;1" dur="0.5s" begin="0s" fill="freeze"/>
+      </text>
+      <text x="30" y="125" fill="#00ff88">
+        │ ✨ Step 1: Environment loaded successfully
+        <animate attributeName="opacity" values="0;1" dur="0.5s" begin="1s" fill="freeze"/>
+      </text>
+      <text x="30" y="145" fill="#00ff88">
+        │ 🔑 Step 2: API key format validated ─ PASS
+        <animate attributeName="opacity" values="0;1" dur="0.5s" begin="2s" fill="freeze"/>
+      </text>
+      <text x="30" y="165" fill="#00ff88">
+        │ 🌐 Step 3: Connection established ─ 47ms response time
+        <animate attributeName="opacity" values="0;1" dur="0.5s" begin="3s" fill="freeze"/>
+      </text>
+      <text x="30" y="185" fill="#00ff88">
+        ╰─ 🎉 All tests passed! Your API key is ready for production use. ─────────╯
+        <animate attributeName="opacity" values="0;1" dur="0.5s" begin="4s" fill="freeze"/>
+      </text>
+    </g>
+  </g>
+  
+  <!-- Footer with Animated Elements -->
+  <g transform="translate(0, 850)">
+    <rect x="0" y="0" width="1400" height="50" fill="url(#glassGradient)" opacity="0.6"/>
+    <text x="700" y="32" text-anchor="middle" font-family="Arial, sans-serif" 
+          font-size="16" fill="white" opacity="0.9">
+      🚀 Open Source • MIT License • Python 3.8+ • Cross Platform • AI-Powered Diagnostics
+    </text>
+    
+    <!-- Animated underline -->
+    <line x1="200" y1="40" x2="1200" y2="40" stroke="url(#neonGlow)" stroke-width="2" opacity="0.5">
+      <animate attributeName="stroke-dasharray" values="0,1000; 1000,0; 0,1000" dur="6s" repeatCount="indefinite"/>
+    </line>
+  </g>
+</svg>
